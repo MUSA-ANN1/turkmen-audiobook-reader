@@ -8,18 +8,18 @@
   @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
 
   :root {
-    --bg:       #07090f;
-    --surface:  #0d1117;
-    --card:     #111827;
-    --border:   #1f2937;
-    --accent:   #60a5fa;
-    --accent2:  #a78bfa;
-    --hl-bg:    rgba(251,191,36,.22);
-    --hl:       #fcd34d;
-    --past:     #e2e8f0;
-    --text:     #4b5563;
-    --muted:    #4b5563;
-    --success:  #34d399;
+    --bg:       #f0f4f8;
+    --surface:  #e2e8f0;
+    --card:     #ffffff;
+    --border:   #cbd5e1;
+    --accent:   #2563eb;
+    --accent2:  #7c3aed;
+    --hl-bg:    rgba(234,179,8,.25);
+    --hl:       #854d0e;
+    --past:     #1e293b;
+    --text:     #94a3b8;
+    --muted:    #64748b;
+    --success:  #16a34a;
   }
 
   *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -31,8 +31,8 @@
     min-height: 100vh;
     padding: 36px 16px 60px;
     background-image:
-      radial-gradient(ellipse 70% 40% at 5% 5%, #0c1a35 0%, transparent 55%),
-      radial-gradient(ellipse 50% 50% at 95% 95%, #110c24 0%, transparent 55%);
+      radial-gradient(ellipse 70% 40% at 5% 5%, #dbeafe 0%, transparent 55%),
+      radial-gradient(ellipse 50% 50% at 95% 95%, #ede9fe 0%, transparent 55%);
   }
 
   header { max-width: 820px; margin: 0 auto 28px; animation: fadeDown .5s ease both; }
@@ -47,9 +47,11 @@
   .wrap { max-width:820px; margin:0 auto; display:flex; flex-direction:column; gap:16px; }
 
   .card {
-    background:var(--card); border:1px solid var(--border);
+    background:var(--card);
+    border:1px solid var(--border);
     border-radius:18px; padding:22px;
     animation:fadeUp .5s ease both;
+    box-shadow: 0 2px 12px rgba(0,0,0,.06);
   }
 
   .card-label {
@@ -68,8 +70,8 @@
   .btn { display:inline-flex; align-items:center; justify-content:center; gap:6px; border:none; border-radius:12px; font-family:'Inter',sans-serif; font-weight:500; cursor:pointer; transition:all .2s; }
   .btn:disabled { opacity:.3; cursor:not-allowed; }
 
-  .btn-main { background:var(--accent); color:#07090f; padding:12px 28px; font-size:.92rem; border-radius:14px; min-width:120px; }
-  .btn-main:hover:not(:disabled) { background:#93c5fd; transform:translateY(-1px); }
+  .btn-main { background:var(--accent); color:#fff; padding:12px 28px; font-size:.92rem; border-radius:14px; min-width:120px; }
+  .btn-main:hover:not(:disabled) { background:#1d4ed8; transform:translateY(-1px); }
 
   .btn-side { background:var(--surface); border:1px solid var(--border); color:var(--text); padding:9px 15px; font-size:.8rem; }
   .btn-side:hover:not(:disabled) { border-color:var(--accent); color:var(--accent); }
@@ -79,8 +81,8 @@
   .spd.on, .spd:hover { border-color:var(--accent); color:var(--accent); }
 
   @keyframes pulse-ring {
-    0%,100% { box-shadow:0 0 0 0 rgba(96,165,250,.4); }
-    50%      { box-shadow:0 0 0 9px rgba(96,165,250,0); }
+    0%,100% { box-shadow:0 0 0 0 rgba(37,99,235,.35); }
+    50%      { box-shadow:0 0 0 9px rgba(37,99,235,0); }
   }
   .btn-main.playing { animation:pulse-ring 1.8s infinite; }
 
@@ -88,16 +90,37 @@
 
   /* TEXT */
   .text-scroll { max-height:460px; overflow-y:auto; padding-right:4px; }
-  .para { font-family:'Merriweather',serif; font-size:.96rem; line-height:2.15; margin-bottom:18px; }
+  .para { font-family:'Merriweather',serif; font-size:.96rem; line-height:2.15; margin-bottom:18px; color:var(--text); }
+
+  /* INLINE IMAGE */
+  .inline-img {
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    margin: 4px auto 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 10px rgba(0,0,0,.08);
+    object-fit: contain;
+  }
+
+  .img-caption {
+    text-align: center;
+    font-size: .75rem;
+    color: var(--past);
+    font-family: 'Inter', sans-serif;
+    margin-top: -14px;
+    margin-bottom: 18px;
+  }
 
   .tbl-wrap { overflow-x:auto; margin-top:6px; }
   table { width:100%; border-collapse:collapse; font-size:.8rem; font-family:'Inter',sans-serif; }
   th { background:var(--surface); color:var(--accent); padding:9px 11px; text-align:left; border:1px solid var(--border); font-weight:600; font-size:.71rem; letter-spacing:.5px; }
-  td { padding:8px 11px; border:1px solid var(--border); vertical-align:top; line-height:1.5; color:#e2e8f0; }
-  tr:nth-child(even) td { background:rgba(255,255,255,.015); }
+  td { padding:8px 11px; border:1px solid var(--border); vertical-align:top; line-height:1.5; color:var(--past); }
+  tr:nth-child(even) td { background:rgba(0,0,0,.02); }
 
   /* WORDS */
-  .w { display:inline; padding:1px 3px; border-radius:3px; transition:background .1s, color .1s; cursor:pointer; }
+  .w { display:inline; padding:1px 3px; border-radius:3px; transition:var(--bg) .1s, color .1s; cursor:pointer; }
   .w:hover  { background:var(--border); }
   .w.active { background:var(--hl-bg) !important; color:var(--hl) !important; font-weight:700; }
   .w.past   { color:var(--past) !important; }
@@ -112,7 +135,6 @@
     padding: 16px 0;
     border-top: 1px solid var(--border);
   }
-
   footer a { color:var(--accent); text-decoration:none; font-weight:500; transition:color .2s; }
   footer a:hover { color:var(--accent2); }
 
@@ -174,6 +196,8 @@
 <audio id="aud" src="./topic.m4a" preload="metadata"></audio>
 
 <script>
+// PARAGRAPHS — index 0 = top image shown before paragraph 0
+// IMAGE slots: after paragraph 5 (Içki gulak) and after paragraph 6 (Ýerine ýetirýän işi)
 const PARAGRAPHS = [
   "Eşidişiň ähmiýeti. Eşidişiň kömegi bilen adamlar öz aralarynda zähmet we jemgyýetçilik işjeňliginde aragatnaşyk edýärler. Çaganyň geplemegi öwrenmegi hem eşidiş bilen baglanyşyklydyr. Eşidiş synasynyň kömegi bilen daş-töweregimizde bolup geçýän hadysalar baradaky habarlary, ses tolkunlary nerw galpyldysyna öwrülýärler. Bizde ajaýyp duýgularyň ösmeginde hem eşidişiň uly orny bar. Biz gowy sazy, çeper okaýşy, guşlaryň saýraýşyny eşidenimizde, töwerekdäki dünýäni kabul edişimiz has aýdyň we baý bolýar.",
   "Eşidiş synasynyň gurluşy. Adamyň eşidiş synasy üç bölümden: daşky, ortaky we içki gulaklardan ybaratdyr.",
@@ -184,6 +208,16 @@ const PARAGRAPHS = [
   "Eşidiş synasynyň ýerine ýetirýän işi. Ses tolkunlary gulaga ýetip, daşky eşidiş geçelgesinden geçýär we gulak perdelerini yrgyldadýar. Ses belent boldugyça yrgyldylaryň ýygylygy şonçada uludyr. Ortaky gulagyň eşidiş süňkjagazlary gulak perdesiniň yrgyldylaryny güýçlendirýär we içki gulagyň süýrgült deşigine geçirýär. Bu içki gulagy dolduryp duran suwuklygyň yrgyldylaryny döredýär. Olar bolsa, içki gulagyň reseptorlary tarapyndan nerw impulslaryna öwrülýärler we eşidiş nerwi boýunça kelle beýnisine geçirilýär. Kelle beýnisiniň çekge böleginde ýerleşýän zolagynda sesiň häsiýeti, onuň güýjüniň belentligi gutarnykly aýyl-saýyl edilýär. Içki gulagyň reseptorlaryndan, nerw impulslaryny geçirýän nerwlerden we kelle beýnisiniň çekge böleginde ýerleşen eşidiş zolagyndan durýan bölümine ses seljericisi diýilýär.",
   "Soraglar: 1. Adamyň ýaşaýşynda eşidişiň nähili ähmiýeti bar? 2. Eşidiş synasy haýsy bölümlerden ybarat? 3. Eşidiş seljermesi haýsy bölümlerden durýar? 4. Eşidiş synalary haýsy synalar bilen baglanyşyklydyr?",
 ];
+
+// Images inserted BEFORE these paragraph indices
+// index 0 = top of text (before paragraph 0)
+// index 5 = between "Içki gulak" and "Ýerine ýetirýän işi" (after para 5, before para 6)
+// index 6 = between "Ýerine ýetirýän işi" and "Soraglar" (after para 6, before para 7)
+const IMAGES = {
+  0: { src: './img1.jpg', caption: '1-njy surat. Eşidiş synasynyň gurluşy' },
+  6: { src: './img2.jpg', caption: '2-nji surat. Içki gulagyň we ondaky ulitkanyň gurluşy' },
+  7: { src: './img3.jpg', caption: '3-nji surat. Eşidiş seljermesi' },
+};
 
 function wordWeight(word) {
   const clean = word.trim();
@@ -207,7 +241,20 @@ function renderText() {
   scroll.innerHTML = '';
   allWords = [];
 
-  PARAGRAPHS.forEach(txt => {
+  PARAGRAPHS.forEach((txt, paraIdx) => {
+    // Insert image BEFORE this paragraph if defined
+    if (IMAGES[paraIdx]) {
+      const img = document.createElement('img');
+      img.src = IMAGES[paraIdx].src;
+      img.alt = IMAGES[paraIdx].caption;
+      img.className = 'inline-img';
+      scroll.appendChild(img);
+      const cap = document.createElement('p');
+      cap.className = 'img-caption';
+      cap.textContent = IMAGES[paraIdx].caption;
+      scroll.appendChild(cap);
+    }
+
     const p = document.createElement('p');
     p.className = 'para';
     txt.split(/\s+/).filter(Boolean).forEach(word => {
@@ -230,7 +277,7 @@ function renderText() {
 
   const lbl = document.createElement('p');
   lbl.className = 'para';
-  lbl.innerHTML = '<strong style="color:#e2e8f0">11-nji tablisa. Eşidiş synasynyň gurluşy we onuň ýerine ýetirýän işleri</strong>';
+  lbl.innerHTML = '<strong style="color:#1e293b">11-nji tablisa. Eşidiş synasynyň gurluşy we onuň ýerine ýetirýän işleri</strong>';
   scroll.appendChild(lbl);
 
   const tw = document.createElement('div');
@@ -266,7 +313,6 @@ function distributeTimestamps(dur) {
   });
 }
 
-// renderText FIRST, then audio
 renderText();
 
 const go = () => {
@@ -281,8 +327,8 @@ if (aud.readyState >= 1) go();
 else aud.addEventListener('loadedmetadata', go, { once: true });
 
 aud.addEventListener('error', () => {
-  document.getElementById('loadStatus').textContent = '❌ eşdiş.m4a tapylmady';
-  document.getElementById('loadStatus').style.color = '#f87171';
+  document.getElementById('loadStatus').textContent = '❌ topic.m4a tapylmady';
+  document.getElementById('loadStatus').style.color = '#dc2626';
 });
 
 document.getElementById('playBtn').addEventListener('click', togglePlay);
@@ -352,9 +398,9 @@ function highlight(t) {
   lastActive = found;
 
   allWords.forEach((w, i) => {
-    if (i === found)     w.el.className = 'w active';
-    else if (i < found)  w.el.className = 'w past';
-    else                 w.el.className = 'w';
+    if (i === found)    w.el.className = 'w active';
+    else if (i < found) w.el.className = 'w past';
+    else                w.el.className = 'w';
   });
 
   if (found >= 0)
